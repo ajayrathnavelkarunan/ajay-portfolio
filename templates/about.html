@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}{% block eyebrow %}About me{% endblock %}
+{% block heading %}Where web development meets data{% endblock %}
+{% block sub %}A student developer building practical, AI-powered solutions.{% endblock %}
+{% block content %}
+<section class="sec"><div class="grid g2">
+ <div class="glass card about">
+  <p>I'm {{ p.name }}, a B.Sc. Data Science student at Sri Krishna Aditya College of Arts and Science, Coimbatore (2023–2026, CGPA 7.3). Since October 2023 I've also been pursuing an Industry Ready Certification in Full-Stack Development with NxtWave.</p>
+  <p>I build responsive interfaces with HTML, CSS, Bootstrap and JavaScript, work in Python, and use Power BI and Tableau to turn data into dashboards.</p>
+  <p>My work includes TN CivicIntel, an AI-powered grievance platform for Ariyalur District, a Data Analyst internship at Altitudes, and a 3rd place finish at a national-level hackathon.</p>
+  <div class="btns"><a class="btn primary" href="{{ url_for('static', filename='documents/resume.pdf') }}" download>Download Resume</a><a class="btn" href="{{ url_for('contact') }}">Get in touch</a></div>
+ </div>
+ <div class="glass card"><h4>At a glance</h4><ul class="facts"><li><b>Location</b>{{ p.location }}</li><li><b>Studying</b>B.Sc. Data Science</li><li><b>Focus</b>Full-stack development &amp; data analytics</li><li><b>Experience</b>Data Analyst Intern, Altitudes</li></ul></div>
+</div></section>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Skills{% endblock %}{% block eyebrow %}Skills{% endblock %}
+{% block heading %}Technologies I work with{% endblock %}
+{% block sub %}Tools across web development, backend, data and AI.{% endblock %}
+{% block content %}
+<section class="sec"><div class="grid g3">{% for cat, items in skills %}
+ <div class="glass card tilt"><h4>{{ cat }}</h4><div class="chips">{% for n in items %}<span class="chip">{{ n }}</span>{% endfor %}</div></div>{% endfor %}
+</div></section>
+{% endblock %}

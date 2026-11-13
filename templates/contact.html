@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}{% block eyebrow %}Contact{% endblock %}
+{% block heading %}Let's connect{% endblock %}
+{% block sub %}Open to opportunities and collaborations.{% endblock %}
+{% block content %}
+<section class="sec"><div class="grid g2">
+ <div class="glass card"><h4>Get in touch</h4>
+  <p>Email: <a href="mailto:{{ p.email }}">{{ p.email }}</a></p><p>Phone: {{ p.phone }}</p><p>{{ p.location }}</p>
+  <div class="social"><a href="{{ p.github }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="{{ p.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div>
+ <form id="form" class="glass card" action="{{ url_for('contact') }}" method="post" novalidate>
+  <label>Name<input name="name" required minlength="2" maxlength="80"><span class="err" data-for="name"></span></label>
+  <label>Email<input name="email" type="email" required><span class="err" data-for="email"></span></label>
+  <label>Message<textarea name="message" rows="5" required minlength="10" maxlength="1500"></textarea><span class="err" data-for="message"></span></label>
+  <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <button class="btn primary" type="submit">Send Message</button><p id="status" role="status"></p>
+ </form></div></section>
+{% endblock %}

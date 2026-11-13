@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Projects{% endblock %}{% block eyebrow %}Projects{% endblock %}
+{% block heading %}Things I've built{% endblock %}
+{% block sub %}AI, data science and web projects.{% endblock %}
+{% block content %}
+<section class="sec"><div class="grid g3">{% for pr in projects %}
+ <article class="glass card tilt proj"><small>{{ pr.sub }}</small><h4>{{ pr.title }}</h4><p>{{ pr.desc }}</p>
+  {% if pr.points %}<ul>{% for x in pr.points %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}
+  <div class="chips">{% for t in pr.tech %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+  <a class="btn primary sm" href="{{ pr.url }}" target="_blank" rel="noopener noreferrer">{{ pr.cta }} ↗</a></article>{% endfor %}
+</div></section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+ <div class="hero-text">
+  <p class="eyebrow">Hello, I'm</p>
+  <h1>{{ p.name }}.</h1>
+  <h2 class="grad">Aspiring Full-Stack Developer | Data Science Enthusiast</h2>
+  <p class="lead">B.Sc. Data Science student from Coimbatore building AI-powered solutions with Python, JavaScript and data tools.</p>
+  <div class="btns"><a class="btn primary" href="{{ url_for('projects') }}">Explore Projects</a><a class="btn" href="{{ url_for('static', filename='documents/resume.pdf') }}" download>Download Resume</a><a class="btn ghost" href="{{ url_for('contact') }}">Contact Me</a></div>
+  <div class="social"><a href="{{ p.github }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="{{ p.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+ </div>
+ <div class="hero-art">
+  {% if has_photo %}<img class="photo" src="{{ url_for('static', filename='images/profile.png') }}" alt="{{ p.name }}">
+  {% else %}<div class="mono glass"><span>AR</span><small>&lt;/&gt; data + code</small></div>{% endif %}
+ </div>
+</section>
+<section class="sec"><div class="grid g3">
+ <a class="glass card tilt quick" href="{{ url_for('projects') }}"><h4>Projects →</h4><p>AI grievance platform, data science notebook and portfolio website.</p></a>
+ <a class="glass card tilt quick" href="{{ url_for('experience') }}"><h4>Experience →</h4><p>Data Analyst Intern at Altitudes with Tableau and Power BI.</p></a>
+ <a class="glass card tilt quick" href="{{ url_for('achievements') }}"><h4>Achievements →</h4><p>3rd place at the National Level Tech Mater '25 Hackathon.</p></a>
+</div></section>
+{% endblock %}

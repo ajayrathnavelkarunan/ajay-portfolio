@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Home{% endblock %} | {{ p.name }}</title>
+<meta name="description" content="{% block desc %}Portfolio of {{ p.name }}, B.Sc. Data Science student in Coimbatore building AI-powered solutions with Python, JavaScript and data tools.{% endblock %}">
+<meta name="author" content="{{ p.name }}"><meta name="theme-color" content="#101828">
+<meta property="og:title" content="{{ p.name }} | Portfolio"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101828'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='700' text-anchor='middle' fill='%2336D6E7'%3EAR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<header class="nav glass"><a href="{{ url_for('index') }}" class="logo">AR<span>.</span></a>
+<button id="menu" aria-label="Toggle menu" aria-expanded="false">☰</button>
+<nav id="links">{% for ep, label in [('index','Home'),('about','About'),('skills','Skills'),('education','Education'),('projects','Projects'),('experience','Experience'),('achievements','Achievements'),('contact','Contact')] %}<a href="{{ url_for(ep) }}" {% if request.endpoint == ep %}class="active" aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}</nav></header>
+<main>
+<section class="page-head"><p class="eyebrow">{% block eyebrow %}{% endblock %}</p><h1>{% block heading %}{% endblock %}</h1><p class="lead">{% block sub %}{% endblock %}</p></section>
+{% block content %}{% endblock %}
+</main>
+<footer><p>© <span id="yr">2026</span> {{ p.name }}. All rights reserved.</p>
+<div class="social"><a href="{{ p.github }}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="{{ p.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:{{ p.email }}">Email</a></div></footer>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body></html>
